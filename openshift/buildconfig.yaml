@@ -1,0 +1,34 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: py-basic
+    app.kubernetes.io/component: py-basic
+    app.kubernetes.io/instance: py-basic
+  name: py-basic
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: py-basic:latest
+  postCommit: {}
+  resources: {}
+  source:
+    git:
+      uri: https://github.com/chtime/py-basic.git
+      ref: develop
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: python:3.9-ubi8
+        namespace: openshift
+    type: Source
+  triggers:
+    - type: ConfigChange
+    - imageChange: {}
+      type: ImageChange

@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: py-basic
+    app.kubernetes.io/component: py-basic
+    app.kubernetes.io/instance: py-basic
+  name: py-basic
+spec:
+  lookupPolicy:
+    local: false
