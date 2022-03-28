@@ -54,7 +54,7 @@ run: venv
 	cd $(SRC) && ${PYTHON} run.py
 
 gunicorn: venv
-	cd $(SRC) && ${PYTHON} -m gunicorn --preload wsgi:app
+	cd $(SRC) && ${PYTHON} -m gunicorn --preload wsgi:application
 
 clean:
 	# there is some weirdness with git ignore patterns and having a leading dot in the path (i.e. ./src/ != src/)
