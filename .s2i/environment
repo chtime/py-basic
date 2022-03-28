@@ -1,0 +1,3 @@
+# variables read by oc's source-to-image pipeline.
+APP_HOME=src
+
