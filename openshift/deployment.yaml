@@ -32,3 +32,11 @@ spec:
             - containerPort: 8000
               protocol: TCP
           resources: {}
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
